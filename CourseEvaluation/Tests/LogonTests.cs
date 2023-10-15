@@ -6,31 +6,35 @@ namespace CourseEvaluation.Tests;
 
 public class LogonTests : WebDriverInit
 {
-	[Test]
-	[Description("Login with correct Username and Password")]
+	[Test(Description = "Login with correct Username and Password")]
 	public void CorrectLoginPassword()
 	{
+		// Arrange
 		LoginPage loginPage = new LoginPage(driver);
-		HomePage homePage = new HomePage(driver);
+		InventoryPage inventoryPage = new InventoryPage(driver);
 
+		// Act
 		loginPage.Login(userNameLogin, userPassword);
-		Assert.IsTrue(homePage.GetVisibleCartButton().Displayed);
+		
+		// Assert
+		Assert.IsTrue(inventoryPage.GetVisibleCartButton().Displayed);
 	}
 
-
-	[Test]
-	[Description("Login with empty Username field")]
+	[Test(Description = "Login with empty Username field")]
 	public void LoginWithEmptyUsername()
 	{
+		// Arrange
 		LoginPage loginPage = new LoginPage(driver);
 
+		// Act
 		loginPage.Login(emptyString, userPassword);
-		Assert.That(loginPage.LoginErrorNotification(), 
+		
+		// Assert
+		Assert.That(loginPage.LoginErrorNotification(),
 			Is.EqualTo(loginPage.GetErrorNotificationUsername()));
 	}
 
-	[Test]
-	[Description("Login with empty Password and see notification about the requirement of Password data")]
+	[Test(Description = "Login with empty Password and see notification about the requirement of Password data")]
 	public void LoginWithEmptyPassword()
 	{
 		LoginPage loginPage = new LoginPage(driver);
@@ -39,8 +43,7 @@ public class LogonTests : WebDriverInit
 		Assert.AreEqual(loginPage.GetErrorNotificationPassword(), loginPage.LoginErrorNotification());
 	}
 
-	[Test]
-	[Description("Login with empty Username and Password and see error notification")]
+	[Test(Description = "Login with empty Username and Password and see error notification")]
 	public void LoginWithEmptyUsernameAndPassword()
 	{
 		LoginPage loginPage = new LoginPage(driver);
@@ -49,8 +52,7 @@ public class LogonTests : WebDriverInit
 		Assert.AreEqual(loginPage.GetErrorNotificationUsername(), loginPage.LoginErrorNotification());
 	}
 
-	[Test]
-	[Description(
+	[Test(Description =
 		"Login with incorrect Username and see error notification about incorrect match of any user in this service")]
 	public void IncorrectLogin()
 	{
@@ -60,8 +62,7 @@ public class LogonTests : WebDriverInit
 		Assert.AreEqual(loginPage.GetStrUsernameAndPassDoNotMatch(), loginPage.LoginErrorNotification());
 	}
 
-	[Test]
-	[Description(
+	[Test(Description =
 		"Login with incorrect Password and see error notification about incorrect match of any user in this service")]
 	public void IncorrectPassword()
 	{
@@ -71,8 +72,7 @@ public class LogonTests : WebDriverInit
 		Assert.AreEqual(loginPage.GetStrUsernameAndPassDoNotMatch(), loginPage.LoginErrorNotification());
 	}
 
-	[Test]
-	[Description(
+	[Test(Description =
 		"Login with incorrect Username and Password and see error notification about incorrect match of any user in this service")]
 	public void IncorrectLoginAndPassword()
 	{
