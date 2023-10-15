@@ -2,11 +2,11 @@ using OpenQA.Selenium;
 
 namespace CourseEvaluation.Pages;
 
-public class Checkout
+public class CheckoutPage
 {
 	private IWebDriver driver;
 
-	public Checkout(IWebDriver driver)
+	public CheckoutPage(IWebDriver driver)
 	{
 		this.driver = driver;
 	}

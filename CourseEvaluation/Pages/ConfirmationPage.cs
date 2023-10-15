@@ -2,11 +2,11 @@ using OpenQA.Selenium;
 
 namespace CourseEvaluation.Pages;
 
-public class Finish
+public class ConfirmationPage
 {
 	private IWebDriver driver;
 
-	public Finish(IWebDriver driver)
+	public ConfirmationPage(IWebDriver driver)
 	{
 		this.driver = driver;
 	}

@@ -13,19 +13,19 @@ public class BuyProductTests : WebDriverInit
 		LoginPage loginPage = new LoginPage(driver);
 		HomePage homePage = new HomePage(driver);
 		CartPage cart = new CartPage(driver);
-		Checkout checkout = new Checkout(driver);
-		Overview overview = new Overview(driver);
-		Finish finish = new Finish(driver);
+		CheckoutPage checkoutPage = new CheckoutPage(driver);
+		OrderOverviewPage orderOverviewPage = new OrderOverviewPage(driver);
+		ConfirmationPage confirmationPage = new ConfirmationPage(driver);
 
 		loginPage.Login(userNameLogin, userPassword);
 		homePage.ClickAddCartSauceLabsBackpackButton();
 		homePage.ClickCartButton();
 		cart.ClickCheckoutButton();
-		checkout.FillFields(firstName, lastName, postalCode);
-		checkout.ClickContinueButton();
-		overview.ClickFinishButton();
+		checkoutPage.FillFields(firstName, lastName, postalCode);
+		checkoutPage.ClickContinueButton();
+		orderOverviewPage.ClickFinishButton();
 
-		Assert.That(finish.GetGratitudeNotification(), Is.EqualTo("Thank you for your order!"));
+		Assert.That(confirmationPage.GetGratitudeNotification(), Is.EqualTo("Thank you for your order!"));
 	}
 
 	[Test]
@@ -34,22 +34,22 @@ public class BuyProductTests : WebDriverInit
 	{
 		LoginPage loginPage = new LoginPage(driver);
 		HomePage homePage = new HomePage(driver);
-		SauceLabsBackpack sauceLabsBackpack = new SauceLabsBackpack(driver);
+		ItemPage itemPage = new ItemPage(driver);
 		CartPage cart = new CartPage(driver);
-		Checkout checkout = new Checkout(driver);
-		Overview overview = new Overview(driver);
-		Finish finish = new Finish(driver);
+		CheckoutPage checkoutPage = new CheckoutPage(driver);
+		OrderOverviewPage orderOverviewPage = new OrderOverviewPage(driver);
+		ConfirmationPage confirmationPage = new ConfirmationPage(driver);
 
 		loginPage.Login(userNameLogin, userPassword);
 		homePage.ClickSauceLabsBackpack();
-		sauceLabsBackpack.ClickAddToCartButton();
-		sauceLabsBackpack.ClickCartButton();
+		itemPage.ClickAddToCartButton();
+		itemPage.ClickCartButton();
 		cart.ClickCheckoutButton();
-		checkout.FillFields(firstName, lastName, postalCode);
-		checkout.ClickContinueButton();
-		overview.ClickFinishButton();
+		checkoutPage.FillFields(firstName, lastName, postalCode);
+		checkoutPage.ClickContinueButton();
+		orderOverviewPage.ClickFinishButton();
 
-		Assert.That(finish.GetGratitudeNotification(), Is.EqualTo("Thank you for your order!"));
+		Assert.That(confirmationPage.GetGratitudeNotification(), Is.EqualTo("Thank you for your order!"));
 	}
 
 	[Test]
@@ -59,16 +59,16 @@ public class BuyProductTests : WebDriverInit
 		LoginPage loginPage = new LoginPage(driver);
 		HomePage homePage = new HomePage(driver);
 		CartPage cart = new CartPage(driver);
-		Checkout checkout = new Checkout(driver);
+		CheckoutPage checkoutPage = new CheckoutPage(driver);
 
 		loginPage.Login(userNameLogin, userPassword);
 		homePage.ClickAddCartSauceLabsBackpackButton();
 		homePage.ClickCartButton();
 		cart.ClickCheckoutButton();
-		checkout.FillFields(emptyString, lastName, postalCode);
-		checkout.ClickContinueButton();
+		checkoutPage.FillFields(emptyString, lastName, postalCode);
+		checkoutPage.ClickContinueButton();
 
-		Assert.That(checkout.GetErrorNotification(), Is.EqualTo(checkout.GetErrorFirstNameNotification()));
+		Assert.That(checkoutPage.GetErrorNotification(), Is.EqualTo(checkoutPage.GetErrorFirstNameNotification()));
 	}
 
 	[Test]
@@ -79,16 +79,16 @@ public class BuyProductTests : WebDriverInit
 		LoginPage loginPage = new LoginPage(driver);
 		HomePage homePage = new HomePage(driver);
 		CartPage cart = new CartPage(driver);
-		Checkout checkout = new Checkout(driver);
+		CheckoutPage checkoutPage = new CheckoutPage(driver);
 
 		loginPage.Login(userNameLogin, userPassword);
 		homePage.ClickAddCartSauceLabsBackpackButton();
 		homePage.ClickCartButton();
 		cart.ClickCheckoutButton();
-		checkout.FillFields(firstName, emptyString, postalCode);
-		checkout.ClickContinueButton();
+		checkoutPage.FillFields(firstName, emptyString, postalCode);
+		checkoutPage.ClickContinueButton();
 
-		Assert.That(checkout.GetErrorNotification(), Is.EqualTo(checkout.GetErrorLastNameNotification()));
+		Assert.That(checkoutPage.GetErrorNotification(), Is.EqualTo(checkoutPage.GetErrorLastNameNotification()));
 	}
 
 	[Test]
@@ -99,16 +99,16 @@ public class BuyProductTests : WebDriverInit
 		LoginPage loginPage = new LoginPage(driver);
 		HomePage homePage = new HomePage(driver);
 		CartPage cart = new CartPage(driver);
-		Checkout checkout = new Checkout(driver);
+		CheckoutPage checkoutPage = new CheckoutPage(driver);
 
 		loginPage.Login(userNameLogin, userPassword);
 		homePage.ClickAddCartSauceLabsBackpackButton();
 		homePage.ClickCartButton();
 		cart.ClickCheckoutButton();
-		checkout.FillFields(firstName, lastName, emptyString);
-		checkout.ClickContinueButton();
+		checkoutPage.FillFields(firstName, lastName, emptyString);
+		checkoutPage.ClickContinueButton();
 
-		Assert.That(checkout.GetErrorNotification(), Is.EqualTo(checkout.GetErrorPostalCodeNotification()));
+		Assert.That(checkoutPage.GetErrorNotification(), Is.EqualTo(checkoutPage.GetErrorPostalCodeNotification()));
 	}
 
 	[Test]
@@ -119,16 +119,16 @@ public class BuyProductTests : WebDriverInit
 		LoginPage loginPage = new LoginPage(driver);
 		HomePage homePage = new HomePage(driver);
 		CartPage cart = new CartPage(driver);
-		Checkout checkout = new Checkout(driver);
-		Overview overview = new Overview(driver);
+		CheckoutPage checkoutPage = new CheckoutPage(driver);
+		OrderOverviewPage orderOverviewPage = new OrderOverviewPage(driver);
 
 		loginPage.Login(userNameLogin, userPassword);
 		homePage.ClickAddCartSauceLabsBackpackButton();
 		homePage.ClickCartButton();
 		cart.ClickCheckoutButton();
-		checkout.FillFields(firstName, lastName, postalCode);
-		checkout.ClickContinueButton();
-		overview.ClickCancelButton();
+		checkoutPage.FillFields(firstName, lastName, postalCode);
+		checkoutPage.ClickContinueButton();
+		orderOverviewPage.ClickCancelButton();
 
 		Assert.That(homePage.GetItemsSuiteInt(), Is.EqualTo(6));
 	}

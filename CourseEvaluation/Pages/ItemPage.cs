@@ -2,11 +2,11 @@ using OpenQA.Selenium;
 
 namespace CourseEvaluation.Pages;
 
-public class SauceLabsBackpack
+public class ItemPage
 {
 	private IWebDriver driver;
 
-	public SauceLabsBackpack(IWebDriver driver)
+	public ItemPage(IWebDriver driver)
 	{
 		this.driver = driver;
 	}

@@ -80,6 +80,4 @@ public class LogonTests : WebDriverInit
 		loginPage.Login(incorrectUsername, incorrectPassword);
 		Assert.AreEqual(loginPage.GetStrUsernameAndPassDoNotMatch(), loginPage.LoginErrorNotification());
 	}
-	
-	
 }

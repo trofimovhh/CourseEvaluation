@@ -12,10 +12,10 @@ public class CartPage
 	}
 
 	private By checkoutButton = By.Id("checkout");
-	private By removeButton = By.XPath("//div[@class='cart_list']/div[@class='cart_item'][1]//button[text()='Remove']");
-	private By removeButtons = By.XPath("//button[@class='btn_secondary cart_button']");
-	private By listOfItems = By.XPath("//div[@class='cart_item']");
+	private By listOfItems = By.ClassName("cart_item");
 	private By continueShoppingButton = By.Id("continue-shopping");
+	private By removeButtons = By.XPath("//button[@class='btn_secondary cart_button']");
+	private By removeButton = By.XPath("//div[@class='cart_list']/div[@class='cart_item'][1]//button[text()='Remove']");
 
 	public void RemoveOneItemFromCart()
 	{
