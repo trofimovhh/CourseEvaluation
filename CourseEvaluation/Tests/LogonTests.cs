@@ -19,13 +19,14 @@ public class LogonTests : WebDriverInit
 
 
 	[Test]
-	[Description("Login with empty Username field and see notification about the requirement of Username data")]
+	[Description("Login with empty Username field")]
 	public void LoginWithEmptyUsername()
 	{
 		LoginPage loginPage = new LoginPage(driver);
 
 		loginPage.Login(emptyString, userPassword);
-		Assert.AreEqual(loginPage.GetErrorNotificationUsername(), loginPage.LoginErrorNotification());
+		Assert.That(loginPage.LoginErrorNotification(), 
+			Is.EqualTo(loginPage.GetErrorNotificationUsername()));
 	}
 
 	[Test]

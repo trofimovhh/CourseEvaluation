@@ -7,7 +7,7 @@ using OpenQA.Selenium.Chrome;
 
 namespace CourseEvaluation;
 
-public class WebDriverInit
+public class  WebDriverInit
 {
 	protected static IWebDriver driver;
 	private ExtentReports extent;
