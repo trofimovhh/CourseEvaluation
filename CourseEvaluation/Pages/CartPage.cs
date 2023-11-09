@@ -1,18 +1,22 @@
-using CourseEvaluation;
 using OpenQA.Selenium;
 
-public class CartPage: WebDriverInit
+namespace CourseEvaluation.Pages;
+
+public class CartPage : WebDriverInit
 {
+	private readonly By checkoutButton = By.Id("checkout");
+	private readonly By continueShoppingButton = By.Id("continue-shopping");
+	private readonly By listOfItems = By.ClassName("cart_item");
+
+	private readonly By removeButton =
+		By.XPath("//div[@class='cart_list']/div[@class='cart_item'][1]//button[text()='Remove']");
+
+	private readonly By removeButtons = By.XPath("//button[@class='btn_secondary cart_button']");
+
 	public CartPage(IWebDriver driver)
 	{
 		WebDriverInit.driver = driver;
 	}
-
-	private By checkoutButton = By.Id("checkout");
-	private By listOfItems = By.ClassName("cart_item");
-	private By continueShoppingButton = By.Id("continue-shopping");
-	private By removeButtons = By.XPath("//button[@class='btn_secondary cart_button']");
-	private By removeButton = By.XPath("//div[@class='cart_list']/div[@class='cart_item'][1]//button[text()='Remove']");
 
 	public void RemoveOneItemFromCart()
 	{
@@ -21,16 +25,13 @@ public class CartPage: WebDriverInit
 
 	public void RemoveAllItemsFromCart()
 	{
-		List<IWebElement> removeButtonsList = new List<IWebElement>(driver.FindElements(removeButtons));
-		foreach (var button in removeButtonsList)
-		{
-			button.Click();
-		}
+		var removeButtonsList = new List<IWebElement>(driver.FindElements(removeButtons));
+		foreach (var button in removeButtonsList) button.Click();
 	}
 
 	public int ListOfItems()
 	{
-		List<IWebElement> items = new List<IWebElement>(driver.FindElements(listOfItems));
+		var items = new List<IWebElement>(driver.FindElements(listOfItems));
 		return items.Count;
 	}
 

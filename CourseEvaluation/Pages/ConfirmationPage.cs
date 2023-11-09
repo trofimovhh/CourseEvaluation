@@ -1,7 +1,8 @@
-using CourseEvaluation;
 using OpenQA.Selenium;
 
-public class ConfirmationPage: WebDriverInit
+namespace CourseEvaluation.Pages;
+
+public class ConfirmationPage : WebDriverInit
 {
 	public ConfirmationPage(IWebDriver driver)
 	{

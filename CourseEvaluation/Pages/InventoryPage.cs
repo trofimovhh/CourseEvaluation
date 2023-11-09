@@ -1,32 +1,40 @@
-using CourseEvaluation;
 using OpenQA.Selenium;
+
+namespace CourseEvaluation.Pages;
 
 public class InventoryPage : WebDriverInit
 {
+	private readonly By aboutLink = By.XPath("//a[@id='about_sidebar_link']");
+
+	private readonly By addCartSauceLabsBackpackToCartButton =
+		By.Id("add-to-cart-sauce-labs-backpack");
+
+	private readonly By addToCartButtons = By.XPath("//button[@class='btn_primary btn_inventory']");
+	private readonly By allItemsLink = By.XPath("//a[@id='inventory_sidebar_link']");
+
+	private readonly By cartButton = By.XPath("//div[@id='shopping_cart_container']/a");
+	private readonly By itemsPrice = By.XPath("//div[@class='inventory_item_price']");
+	private readonly By itemsSuite = By.XPath("//div[@class='inventory_item']//div[@class='inventory_item_name ']");
+	private readonly By logoutLink = By.XPath("//a[@id='logout_sidebar_link']");
+
+	private readonly By sauceLabsBackpack = By.XPath("//div[text()='Sauce Labs Backpack']");
+	private readonly By sidebarButton = By.XPath("//div[@class='bm-burger-button']");
+	private readonly By sortAtoZButton = By.XPath("//select[@class='product_sort_container']//option[@value='az']");
+	private readonly By sortContainer = By.XPath("//select[@class='product_sort_container']");
+
+	private readonly By sortPriceHighToLow =
+		By.XPath("//select[@class='product_sort_container']//option[@value='hilo']");
+
+	private readonly By sortPriceLowToHigh =
+		By.XPath("//select[@class='product_sort_container']//option[@value='lohi']");
+
+	private readonly By sortZtoAButton = By.XPath("//select[@class='product_sort_container']//option[@value='za']");
+
 	public InventoryPage(IWebDriver driver)
 	{
 		WebDriverInit.driver = driver;
 	}
-	
-	private By sauceLabsBackpack = By.XPath("//div[text()='Sauce Labs Backpack']");
 
-	private By addCartSauceLabsBackpackToCartButton =
-		By.Id("add-to-cart-sauce-labs-backpack");
-
-	private By cartButton = By.XPath("//div[@id='shopping_cart_container']/a");
-	private By itemsSuite = By.XPath("//div[@class='inventory_item']//div[@class='inventory_item_name ']");
-	private By addToCartButtons = By.XPath("//button[@class='btn_primary btn_inventory']");
-	private By sortContainer = By.XPath("//select[@class='product_sort_container']");
-	private By sortAtoZButton = By.XPath("//select[@class='product_sort_container']//option[@value='az']");
-	private By sortZtoAButton = By.XPath("//select[@class='product_sort_container']//option[@value='za']");
-	private By sortPriceLowToHigh = By.XPath("//select[@class='product_sort_container']//option[@value='lohi']");
-	private By sortPriceHighToLow = By.XPath("//select[@class='product_sort_container']//option[@value='hilo']");
-	private By sidebarButton = By.XPath("//div[@class='bm-burger-button']");
-	private By allItemsLink = By.XPath("//a[@id='inventory_sidebar_link']");
-	private By aboutLink = By.XPath("//a[@id='about_sidebar_link']");
-	private By logoutLink = By.XPath("//a[@id='logout_sidebar_link']");
-	private By itemsPrice = By.XPath("//div[@class='inventory_item_price']");
-	
 	public int GetItemsSuiteInt()
 	{
 		List<IWebElement> itemsSuiteList = driver.FindElements(itemsSuite).ToList();
@@ -35,7 +43,7 @@ public class InventoryPage : WebDriverInit
 
 	public IWebElement GetVisibleCartButton()
 	{
-		IWebElement visibleCartButton = driver.FindElement(cartButton);
+		var visibleCartButton = driver.FindElement(cartButton);
 		return visibleCartButton;
 	}
 
@@ -57,20 +65,15 @@ public class InventoryPage : WebDriverInit
 	public void AddAllItemsOfProductsToCart()
 	{
 		List<IWebElement> allProductsAddToCartButtons = driver.FindElements(addToCartButtons).ToList();
-		foreach (var button in allProductsAddToCartButtons)
-		{
-			button.Click();
-		}
+		foreach (var button in allProductsAddToCartButtons) button.Click();
 	}
+
 	public List<string> SortListAToZ()
 	{
-		List<string> obtainedList = new List<string>();
+		var obtainedList = new List<string>();
 		List<IWebElement> elementList = driver.FindElements(itemsSuite).ToList();
 
-		foreach (var element in elementList)
-		{
-			obtainedList.Add(element.Text);
-		}
+		foreach (var element in elementList) obtainedList.Add(element.Text);
 
 		obtainedList.Sort();
 		return obtainedList;
@@ -78,13 +81,10 @@ public class InventoryPage : WebDriverInit
 
 	public List<string> SortListZToA()
 	{
-		List<string> obtainedList = new List<string>();
+		var obtainedList = new List<string>();
 		List<IWebElement> elementList = driver.FindElements(itemsSuite).ToList();
 
-		foreach (var element in elementList)
-		{
-			obtainedList.Add(element.Text);
-		}
+		foreach (var element in elementList) obtainedList.Add(element.Text);
 
 		obtainedList.Sort();
 		obtainedList.Reverse();
@@ -93,13 +93,10 @@ public class InventoryPage : WebDriverInit
 
 	public List<string> GetNotSortedItemList()
 	{
-		List<string> obtainedList = new List<string>();
+		var obtainedList = new List<string>();
 		List<IWebElement> itemsList = driver.FindElements(itemsSuite).ToList();
 
-		foreach (var element in itemsList)
-		{
-			obtainedList.Add(element.Text);
-		}
+		foreach (var element in itemsList) obtainedList.Add(element.Text);
 
 		return obtainedList;
 	}
@@ -107,18 +104,12 @@ public class InventoryPage : WebDriverInit
 	public List<double> SortPriceLowToHigh()
 	{
 		List<IWebElement> priceItems = driver.FindElements(itemsPrice).ToList();
-		List<string> sortLowHigh = new List<string>();
-		List<double> price = new List<double>();
+		var sortLowHigh = new List<string>();
+		var price = new List<double>();
 
-		foreach (var element in priceItems)
-		{
-			sortLowHigh.Add(element.Text);
-		}
+		foreach (var element in priceItems) sortLowHigh.Add(element.Text);
 
-		foreach (var item in sortLowHigh)
-		{
-			price.Add(double.Parse(item.Replace("$", "").Replace(".", ",")));
-		}
+		foreach (var item in sortLowHigh) price.Add(double.Parse(item.Replace("$", "").Replace(".", ",")));
 
 		price.Sort();
 		return price;
@@ -127,18 +118,12 @@ public class InventoryPage : WebDriverInit
 	public List<double> SortPriceHighToLow()
 	{
 		List<IWebElement> priceItems = driver.FindElements(itemsPrice).ToList();
-		List<string> sortLowHigh = new List<string>();
-		List<double> price = new List<double>();
+		var sortLowHigh = new List<string>();
+		var price = new List<double>();
 
-		foreach (var element in priceItems)
-		{
-			sortLowHigh.Add(element.Text);
-		}
+		foreach (var element in priceItems) sortLowHigh.Add(element.Text);
 
-		foreach (var item in sortLowHigh)
-		{
-			price.Add(double.Parse(item.Replace("$", "").Replace(".", ",")));
-		}
+		foreach (var item in sortLowHigh) price.Add(double.Parse(item.Replace("$", "").Replace(".", ",")));
 
 		price.Sort();
 		price.Reverse();
@@ -148,12 +133,9 @@ public class InventoryPage : WebDriverInit
 	public List<double> GetPriceItemsFromPage()
 	{
 		List<IWebElement> priceItems = driver.FindElements(itemsPrice).ToList();
-		List<double> price = new List<double>();
+		var price = new List<double>();
 
-		foreach (var element in priceItems)
-		{
-			price.Add(double.Parse(element.Text.Replace("$", "").Replace(".", ",")));
-		}
+		foreach (var element in priceItems) price.Add(double.Parse(element.Text.Replace("$", "").Replace(".", ",")));
 
 		return price;
 	}
@@ -161,21 +143,15 @@ public class InventoryPage : WebDriverInit
 	public void AddSeveralItemsToCart()
 	{
 		List<IWebElement> buttonAddToCart = driver.FindElements(By.XPath("//button[text()='ADD TO CART']")).ToList();
-		for (int i = 0; i < 3; i++)
-		{
-			buttonAddToCart[i].Click();
-		}
+		for (var i = 0; i < 3; i++) buttonAddToCart[i].Click();
 	}
 
 	public List<string> GetItemsSuiteString()
 	{
 		List<IWebElement> obtainedList = driver.FindElements(itemsSuite).ToList();
-		List<string> itemsList = new List<string>();
+		var itemsList = new List<string>();
 
-		foreach (var element in obtainedList)
-		{
-			itemsList.Add(element.Text);
-		}
+		foreach (var element in obtainedList) itemsList.Add(element.Text);
 
 		return itemsList;
 	}

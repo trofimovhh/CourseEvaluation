@@ -1,15 +1,17 @@
-using CourseEvaluation;
 using OpenQA.Selenium;
+
+namespace CourseEvaluation.Pages;
 
 public class OrderOverviewPage : WebDriverInit
 {
+	private readonly By cancelButton = By.Id("cancel");
+
+	private readonly By finishButton = By.Id("finish");
+
 	public OrderOverviewPage(IWebDriver driver)
 	{
 		WebDriverInit.driver = driver;
 	}
-
-	private By finishButton = By.Id("finish");
-	private By cancelButton = By.Id("cancel");
 
 	public void ClickFinishButton()
 	{

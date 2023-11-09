@@ -1,6 +1,8 @@
-﻿using CourseEvaluation;
+﻿using CourseEvaluation.Pages;
 using NUnit.Framework;
 using static CourseEvaluation.Data.UserData;
+
+namespace CourseEvaluation.Tests;
 
 public class CheckoutTests : WebDriverInit
 {
@@ -9,10 +11,10 @@ public class CheckoutTests : WebDriverInit
 	public void CheckoutWithEmptyFirstName()
 	{
 		// Arrange
-		LoginPage loginPage = new LoginPage(driver);
-		InventoryPage inventoryPage = new InventoryPage(driver);
-		CartPage cart = new CartPage(driver);
-		CheckoutPage checkoutPage = new CheckoutPage(driver);
+		var loginPage = new LoginPage(driver);
+		var inventoryPage = new InventoryPage(driver);
+		var cart = new CartPage(driver);
+		var checkoutPage = new CheckoutPage(driver);
 		loginPage.Login(userNameLogin, userPassword);
 
 		// Act
@@ -31,10 +33,10 @@ public class CheckoutTests : WebDriverInit
 	public void CheckoutWithEmptyLastName()
 	{
 		// Arrange
-		LoginPage loginPage = new LoginPage(driver);
-		InventoryPage inventoryPage = new InventoryPage(driver);
-		CartPage cart = new CartPage(driver);
-		CheckoutPage checkoutPage = new CheckoutPage(driver);
+		var loginPage = new LoginPage(driver);
+		var inventoryPage = new InventoryPage(driver);
+		var cart = new CartPage(driver);
+		var checkoutPage = new CheckoutPage(driver);
 
 		// Act
 		loginPage.Login(userNameLogin, userPassword);
@@ -53,10 +55,10 @@ public class CheckoutTests : WebDriverInit
 	public void CheckoutWithEmptyPostalCode()
 	{
 		// Arrange
-		LoginPage loginPage = new LoginPage(driver);
-		InventoryPage inventoryPage = new InventoryPage(driver);
-		CartPage cart = new CartPage(driver);
-		CheckoutPage checkoutPage = new CheckoutPage(driver);
+		var loginPage = new LoginPage(driver);
+		var inventoryPage = new InventoryPage(driver);
+		var cart = new CartPage(driver);
+		var checkoutPage = new CheckoutPage(driver);
 
 		// Act
 		loginPage.Login(userNameLogin, userPassword);

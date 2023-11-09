@@ -1,6 +1,8 @@
-﻿using CourseEvaluation;
-using CourseEvaluation.Data;
+﻿using CourseEvaluation.Data;
+using CourseEvaluation.Pages;
 using NUnit.Framework;
+
+namespace CourseEvaluation.Tests;
 
 public class SortTests : WebDriverInit
 {
@@ -8,13 +10,13 @@ public class SortTests : WebDriverInit
 	public void NameAtoZ()
 	{
 		//Arrange
-		LoginPage loginPage = new LoginPage(driver);
-		InventoryPage inventoryPage = new InventoryPage(driver);
+		var loginPage = new LoginPage(driver);
+		var inventoryPage = new InventoryPage(driver);
 		loginPage.Login(UserData.userNameLogin, UserData.userPassword);
-		
+
 		//Act
 		inventoryPage.ClickSortContainerAtoZButton();
-		
+
 		//Assert
 		Assert.That(inventoryPage.SortListAToZ(), Is.EqualTo(inventoryPage.GetItemsSuiteString()));
 	}
@@ -23,13 +25,13 @@ public class SortTests : WebDriverInit
 	public void NameZtoA()
 	{
 		//Arrange
-		LoginPage loginPage = new LoginPage(driver);
-		InventoryPage inventoryPage = new InventoryPage(driver);
+		var loginPage = new LoginPage(driver);
+		var inventoryPage = new InventoryPage(driver);
 		loginPage.Login(UserData.userNameLogin, UserData.userPassword);
-		
+
 		//Act
 		inventoryPage.ClickSortContainerZtoAButton();
-		
+
 		//Assert
 		Assert.That(inventoryPage.SortListZToA(), Is.EqualTo(inventoryPage.GetItemsSuiteString()));
 	}
@@ -38,13 +40,13 @@ public class SortTests : WebDriverInit
 	public void PriceLowToHigh()
 	{
 		//Arrange
-		LoginPage loginPage = new LoginPage(driver);
-		InventoryPage inventoryPage = new InventoryPage(driver);
+		var loginPage = new LoginPage(driver);
+		var inventoryPage = new InventoryPage(driver);
 		loginPage.Login(UserData.userNameLogin, UserData.userPassword);
-		
+
 		//Act
 		inventoryPage.ClickPriceLowToHighButton();
-		
+
 		//Assert
 		Assert.That(inventoryPage.SortPriceLowToHigh(), Is.EqualTo(inventoryPage.GetPriceItemsFromPage()));
 	}
@@ -53,13 +55,13 @@ public class SortTests : WebDriverInit
 	public void PriceHighToLow()
 	{
 		//Arrange
-		LoginPage loginPage = new LoginPage(driver);
-		InventoryPage inventoryPage = new InventoryPage(driver);
+		var loginPage = new LoginPage(driver);
+		var inventoryPage = new InventoryPage(driver);
 		loginPage.Login(UserData.userNameLogin, UserData.userPassword);
-		
+
 		//Act
 		inventoryPage.ClickPriceHighToLowButton();
-		
+
 		//Assert
 		Assert.That(inventoryPage.SortPriceHighToLow(), Is.EqualTo(inventoryPage.GetPriceItemsFromPage()));
 	}

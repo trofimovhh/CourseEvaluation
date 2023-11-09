@@ -1,18 +1,20 @@
-using CourseEvaluation;
 using OpenQA.Selenium;
+
+namespace CourseEvaluation.Pages;
 
 public class LoginPage : WebDriverInit
 {
+	private readonly string errorNotificationPassword = "Epic sadface: Password is required";
+
+	private readonly string errorNotificationUsername = "Epic sadface: Username is required";
+
+	private readonly string errorUsernameAndPassDoNotMatch =
+		"Epic sadface: Username and password do not match any user in this service";
+
 	public LoginPage(IWebDriver driver)
 	{
 		WebDriverInit.driver = driver;
 	}
-	
-	private string errorNotificationUsername = "Epic sadface: Username is required";
-	private string errorNotificationPassword = "Epic sadface: Password is required";
-
-	private string errorUsernameAndPassDoNotMatch =
-		"Epic sadface: Username and password do not match any user in this service";
 
 	public void Login(string login, string password)
 	{

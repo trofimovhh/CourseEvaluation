@@ -1,15 +1,16 @@
-using CourseEvaluation;
 using OpenQA.Selenium;
 
-public class ItemPage: WebDriverInit
+namespace CourseEvaluation.Pages;
+
+public class ItemPage : WebDriverInit
 {
+	private readonly By addToCartButton = By.Id("add-to-cart-sauce-labs-backpack");
+	private readonly By cartButton = By.XPath("//div[@id='shopping_cart_container']/a");
+
 	public ItemPage(IWebDriver driver)
 	{
 		WebDriverInit.driver = driver;
 	}
-
-	private By addToCartButton = By.Id("add-to-cart-sauce-labs-backpack");
-	private By cartButton = By.XPath("//div[@id='shopping_cart_container']/a");
 
 	public void ClickAddToCartButton()
 	{

@@ -1,6 +1,8 @@
-using CourseEvaluation;
 using CourseEvaluation.Data;
+using CourseEvaluation.Pages;
 using NUnit.Framework;
+
+namespace CourseEvaluation.Tests;
 
 public class CartTests : WebDriverInit
 {
@@ -9,16 +11,16 @@ public class CartTests : WebDriverInit
 	public void AddItemToCartAndDeleteIt()
 	{
 		// Arrange
-		LoginPage loginPage = new LoginPage(driver);
-		InventoryPage inventoryPage = new InventoryPage(driver);
-		CartPage cart = new CartPage(driver);
+		var loginPage = new LoginPage(driver);
+		var inventoryPage = new InventoryPage(driver);
+		var cart = new CartPage(driver);
 		loginPage.Login(UserData.userNameLogin, UserData.userPassword);
 		inventoryPage.ClickAddCartSauceLabsBackpackButton();
 		inventoryPage.ClickCartButton();
-		
+
 		//Act
 		cart.RemoveOneItemFromCart();
-		
+
 		// Assert
 		Assert.AreEqual(0, cart.ListOfItems());
 	}
@@ -28,13 +30,13 @@ public class CartTests : WebDriverInit
 	public void AddAllItemsToCartAndDeleteIt()
 	{
 		// Arrange
-		LoginPage loginPage = new LoginPage(driver);
-		InventoryPage inventoryPage = new InventoryPage(driver);
-		CartPage cart = new CartPage(driver);
+		var loginPage = new LoginPage(driver);
+		var inventoryPage = new InventoryPage(driver);
+		var cart = new CartPage(driver);
 		loginPage.Login(UserData.userNameLogin, UserData.userPassword);
 		inventoryPage.AddAllItemsOfProductsToCart();
 		inventoryPage.ClickCartButton();
-		
+
 		//Act
 		cart.RemoveAllItemsFromCart();
 
@@ -47,13 +49,13 @@ public class CartTests : WebDriverInit
 	public void AddItemToCartAndContinueShopping()
 	{
 		// Arrange
-		LoginPage loginPage = new LoginPage(driver);
-		InventoryPage inventoryPage = new InventoryPage(driver);
-		CartPage cart = new CartPage(driver);
+		var loginPage = new LoginPage(driver);
+		var inventoryPage = new InventoryPage(driver);
+		var cart = new CartPage(driver);
 		loginPage.Login(UserData.userNameLogin, UserData.userPassword);
 		inventoryPage.ClickAddCartSauceLabsBackpackButton();
 		inventoryPage.ClickCartButton();
-		
+
 		//Act
 		cart.ClickContinueShoppingButton();
 

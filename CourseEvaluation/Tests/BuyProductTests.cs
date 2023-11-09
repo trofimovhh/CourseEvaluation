@@ -1,3 +1,4 @@
+using CourseEvaluation.Pages;
 using NUnit.Framework;
 using static CourseEvaluation.Data.UserData;
 
@@ -9,13 +10,13 @@ public class BuyProductTests : WebDriverInit
 	public void BuyProduct()
 	{
 		// Arrange
-		LoginPage loginPage = new LoginPage(driver);
-		InventoryPage inventoryPage = new InventoryPage(driver);
-		CartPage cart = new CartPage(driver);
-		CheckoutPage checkoutPage = new CheckoutPage(driver);
-		OrderOverviewPage orderOverviewPage = new OrderOverviewPage(driver);
-		ConfirmationPage confirmationPage = new ConfirmationPage(driver);
-		
+		var loginPage = new LoginPage(driver);
+		var inventoryPage = new InventoryPage(driver);
+		var cart = new CartPage(driver);
+		var checkoutPage = new CheckoutPage(driver);
+		var orderOverviewPage = new OrderOverviewPage(driver);
+		var confirmationPage = new ConfirmationPage(driver);
+
 		// Act
 		loginPage.Login(userNameLogin, userPassword);
 		inventoryPage.ClickAddCartSauceLabsBackpackButton();
@@ -33,13 +34,13 @@ public class BuyProductTests : WebDriverInit
 	public void BuyProductFromItsPage()
 	{
 		// Arrange
-		LoginPage loginPage = new LoginPage(driver);
-		InventoryPage inventoryPage = new InventoryPage(driver);
-		ItemPage itemPage = new ItemPage(driver);
-		CartPage cart = new CartPage(driver);
-		CheckoutPage checkoutPage = new CheckoutPage(driver);
-		OrderOverviewPage orderOverviewPage = new OrderOverviewPage(driver);
-		ConfirmationPage confirmationPage = new ConfirmationPage(driver);
+		var loginPage = new LoginPage(driver);
+		var inventoryPage = new InventoryPage(driver);
+		var itemPage = new ItemPage(driver);
+		var cart = new CartPage(driver);
+		var checkoutPage = new CheckoutPage(driver);
+		var orderOverviewPage = new OrderOverviewPage(driver);
+		var confirmationPage = new ConfirmationPage(driver);
 
 		// Act
 		loginPage.Login(userNameLogin, userPassword);
@@ -60,11 +61,11 @@ public class BuyProductTests : WebDriverInit
 	public void CancelPurchase()
 	{
 		// Arrange
-		LoginPage loginPage = new LoginPage(driver);
-		InventoryPage inventoryPage = new InventoryPage(driver);
-		CartPage cart = new CartPage(driver);
-		CheckoutPage checkoutPage = new CheckoutPage(driver);
-		OrderOverviewPage orderOverviewPage = new OrderOverviewPage(driver);
+		var loginPage = new LoginPage(driver);
+		var inventoryPage = new InventoryPage(driver);
+		var cart = new CartPage(driver);
+		var checkoutPage = new CheckoutPage(driver);
+		var orderOverviewPage = new OrderOverviewPage(driver);
 
 		// Act
 		loginPage.Login(userNameLogin, userPassword);
@@ -74,7 +75,7 @@ public class BuyProductTests : WebDriverInit
 		checkoutPage.FillFields(firstName, lastName, postalCode);
 		checkoutPage.ClickContinueButton();
 		orderOverviewPage.ClickCancelButton();
-		
+
 		// Assert
 		Assert.That(inventoryPage.GetItemsSuiteInt(), Is.EqualTo(6));
 	}

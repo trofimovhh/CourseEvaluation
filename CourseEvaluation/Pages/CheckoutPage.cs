@@ -1,22 +1,24 @@
-using CourseEvaluation;
 using OpenQA.Selenium;
+
+namespace CourseEvaluation.Pages;
 
 public class CheckoutPage : WebDriverInit
 {
+	private readonly By continueButton = By.Id("continue");
+
+	private readonly string errorFirstNameNotification = "Error: First Name is required";
+	private readonly string errorLastNameNotification = "Error: Last Name is required";
+	private readonly By errorNotification = By.XPath("//h3");
+	private readonly string errorPostalCodeNotification = "Error: Postal Code is required";
+
+	private readonly By firstNameField = By.XPath("//input[@id='first-name']");
+	private readonly By lastNameField = By.XPath("//input[@id='last-name']");
+	private readonly By postalCodeField = By.XPath("//input[@id='postal-code']");
+
 	public CheckoutPage(IWebDriver driver)
 	{
 		WebDriverInit.driver = driver;
 	}
-
-	private string errorFirstNameNotification = "Error: First Name is required";
-	private string errorLastNameNotification = "Error: Last Name is required";
-	private string errorPostalCodeNotification = "Error: Postal Code is required";
-
-	private By firstNameField = By.XPath("//input[@id='first-name']");
-	private By lastNameField = By.XPath("//input[@id='last-name']");
-	private By postalCodeField = By.XPath("//input[@id='postal-code']");
-	private By continueButton = By.Id("continue");
-	private By errorNotification = By.XPath("//h3");
 
 	public void FillFields(string firstname, string lastName, string postalCode)
 	{
