@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Em1RkfPMlXYv93aEVpOUQZmcAVgmNTKivyQAfnZKLj5UuRAIC/pZW90XPLBIQRJIx0YDdCiskNqGc3DV8K5vQA==",
+  "dgSpecHash": "LvIS66OCgF3ZQDaucwnPstBASxLgEBkfB14irlwjbgzvrWlelmXtpgFYxCau1rUHN/vc8ofU9G9An87Ta8icnQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\RiderProjects\\CourseEvaluation\\CourseEvaluation\\CourseEvaluation.csproj",
   "expectedPackageFiles": [
@@ -25,7 +25,7 @@
     "C:\\Users\\user\\.nuget\\packages\\nunit3testadapter\\4.4.2\\nunit3testadapter.4.4.2.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\razorengine.netcore.nixfix\\1.0.1\\razorengine.netcore.nixfix.1.0.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\selenium.webdriver\\4.14.0\\selenium.webdriver.4.14.0.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\selenium.webdriver.chromedriver\\117.0.5938.14900\\selenium.webdriver.chromedriver.117.0.5938.14900.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\selenium.webdriver.chromedriver\\119.0.6045.10500\\selenium.webdriver.chromedriver.119.0.6045.10500.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",

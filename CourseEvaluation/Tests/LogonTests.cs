@@ -1,8 +1,7 @@
-using CourseEvaluation.Pages;
+using CourseEvaluation;
 using NUnit.Framework;
 using static CourseEvaluation.Data.UserData;
 
-namespace CourseEvaluation.Tests;
 
 public class LogonTests : WebDriverInit
 {

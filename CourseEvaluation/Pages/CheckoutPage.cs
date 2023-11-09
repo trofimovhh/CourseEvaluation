@@ -1,14 +1,11 @@
+using CourseEvaluation;
 using OpenQA.Selenium;
 
-namespace CourseEvaluation.Pages;
-
-public class CheckoutPage
+public class CheckoutPage : WebDriverInit
 {
-	private IWebDriver driver;
-
 	public CheckoutPage(IWebDriver driver)
 	{
-		this.driver = driver;
+		WebDriverInit.driver = driver;
 	}
 
 	private string errorFirstNameNotification = "Error: First Name is required";

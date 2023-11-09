@@ -1,6 +1,5 @@
+using CourseEvaluation;
 using OpenQA.Selenium;
-
-namespace CourseEvaluation.Pages;
 
 public class InventoryPage : WebDriverInit
 {

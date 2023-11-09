@@ -1,14 +1,13 @@
+using CourseEvaluation;
 using OpenQA.Selenium;
 
-namespace CourseEvaluation.Pages;
-
-public class ConfirmationPage
+public class ConfirmationPage: WebDriverInit
 {
 	private IWebDriver driver;
 
 	public ConfirmationPage(IWebDriver driver)
 	{
-		this.driver = driver;
+		WebDriverInit.driver = driver;
 	}
 
 	public string GetGratitudeNotification()

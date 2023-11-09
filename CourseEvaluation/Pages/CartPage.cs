@@ -1,14 +1,11 @@
+using CourseEvaluation;
 using OpenQA.Selenium;
 
-namespace CourseEvaluation.Pages;
-
-public class CartPage
+public class CartPage: WebDriverInit
 {
-	private IWebDriver driver;
-
 	public CartPage(IWebDriver driver)
 	{
-		this.driver = driver;
+		WebDriverInit.driver = driver;
 	}
 
 	private By checkoutButton = By.Id("checkout");

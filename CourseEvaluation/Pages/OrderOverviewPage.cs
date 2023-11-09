@@ -1,14 +1,13 @@
+using CourseEvaluation;
 using OpenQA.Selenium;
 
-namespace CourseEvaluation.Pages;
-
-public class OrderOverviewPage
+public class OrderOverviewPage: WebDriverInit
 {
 	private IWebDriver driver;
 
 	public OrderOverviewPage(IWebDriver driver)
 	{
-		this.driver = driver;
+		WebDriverInit.driver = driver;
 	}
 
 	private By finishButton = By.Id("finish");

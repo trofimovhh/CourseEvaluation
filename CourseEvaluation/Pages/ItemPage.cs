@@ -1,14 +1,13 @@
+using CourseEvaluation;
 using OpenQA.Selenium;
 
-namespace CourseEvaluation.Pages;
-
-public class ItemPage
+public class ItemPage: WebDriverInit
 {
 	private IWebDriver driver;
 
 	public ItemPage(IWebDriver driver)
 	{
-		this.driver = driver;
+		WebDriverInit.driver = driver;
 	}
 
 	private By addToCartButton = By.Id("add-to-cart-sauce-labs-backpack");

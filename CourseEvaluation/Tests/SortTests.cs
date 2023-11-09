@@ -1,8 +1,6 @@
-﻿using CourseEvaluation.Data;
-using CourseEvaluation.Pages;
+﻿using CourseEvaluation;
+using CourseEvaluation.Data;
 using NUnit.Framework;
-
-namespace CourseEvaluation.Tests;
 
 public class SortTests : WebDriverInit
 {

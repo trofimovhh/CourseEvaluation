@@ -1,8 +1,6 @@
+using CourseEvaluation;
 using CourseEvaluation.Data;
-using CourseEvaluation.Pages;
 using NUnit.Framework;
-
-namespace CourseEvaluation.Tests;
 
 public class CartTests : WebDriverInit
 {

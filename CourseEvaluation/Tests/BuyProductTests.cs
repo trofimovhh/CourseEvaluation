@@ -1,4 +1,3 @@
-using CourseEvaluation.Pages;
 using NUnit.Framework;
 using static CourseEvaluation.Data.UserData;
 

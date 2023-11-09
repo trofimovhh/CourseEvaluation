@@ -1,8 +1,6 @@
-﻿using CourseEvaluation.Pages;
+﻿using CourseEvaluation;
 using NUnit.Framework;
 using static CourseEvaluation.Data.UserData;
-
-namespace CourseEvaluation.Tests;
 
 public class CheckoutTests : WebDriverInit
 {
@@ -16,7 +14,7 @@ public class CheckoutTests : WebDriverInit
 		CartPage cart = new CartPage(driver);
 		CheckoutPage checkoutPage = new CheckoutPage(driver);
 		loginPage.Login(userNameLogin, userPassword);
-		
+
 		// Act
 		inventoryPage.ClickAddCartSauceLabsBackpackButton();
 		inventoryPage.ClickCartButton();
