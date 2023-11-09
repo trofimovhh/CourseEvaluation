@@ -3,8 +3,6 @@ using OpenQA.Selenium;
 
 public class ConfirmationPage: WebDriverInit
 {
-	private IWebDriver driver;
-
 	public ConfirmationPage(IWebDriver driver)
 	{
 		WebDriverInit.driver = driver;

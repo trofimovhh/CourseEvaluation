@@ -3,8 +3,6 @@ using OpenQA.Selenium;
 
 public class ItemPage: WebDriverInit
 {
-	private IWebDriver driver;
-
 	public ItemPage(IWebDriver driver)
 	{
 		WebDriverInit.driver = driver;

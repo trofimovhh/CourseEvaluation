@@ -3,6 +3,11 @@ using OpenQA.Selenium;
 
 public class InventoryPage : WebDriverInit
 {
+	public InventoryPage(IWebDriver driver)
+	{
+		WebDriverInit.driver = driver;
+	}
+	
 	private By sauceLabsBackpack = By.XPath("//div[text()='Sauce Labs Backpack']");
 
 	private By addCartSauceLabsBackpackToCartButton =
@@ -21,12 +26,7 @@ public class InventoryPage : WebDriverInit
 	private By aboutLink = By.XPath("//a[@id='about_sidebar_link']");
 	private By logoutLink = By.XPath("//a[@id='logout_sidebar_link']");
 	private By itemsPrice = By.XPath("//div[@class='inventory_item_price']");
-
-	public InventoryPage(IWebDriver driver)
-	{
-		WebDriverInit.driver = driver;
-	}
-
+	
 	public int GetItemsSuiteInt()
 	{
 		List<IWebElement> itemsSuiteList = driver.FindElements(itemsSuite).ToList();

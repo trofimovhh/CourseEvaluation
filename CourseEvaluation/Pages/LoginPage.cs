@@ -3,16 +3,16 @@ using OpenQA.Selenium;
 
 public class LoginPage : WebDriverInit
 {
+	public LoginPage(IWebDriver driver)
+	{
+		WebDriverInit.driver = driver;
+	}
+	
 	private string errorNotificationUsername = "Epic sadface: Username is required";
 	private string errorNotificationPassword = "Epic sadface: Password is required";
 
 	private string errorUsernameAndPassDoNotMatch =
 		"Epic sadface: Username and password do not match any user in this service";
-
-	public LoginPage(IWebDriver driver)
-	{
-		WebDriverInit.driver = driver;
-	}
 
 	public void Login(string login, string password)
 	{
