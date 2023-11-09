@@ -1,10 +1,8 @@
 using CourseEvaluation;
 using OpenQA.Selenium;
 
-public class OrderOverviewPage: WebDriverInit
+public class OrderOverviewPage : WebDriverInit
 {
-	private IWebDriver driver;
-
 	public OrderOverviewPage(IWebDriver driver)
 	{
 		WebDriverInit.driver = driver;
