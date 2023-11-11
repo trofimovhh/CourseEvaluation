@@ -1,34 +1,25 @@
+using AventStack.ExtentReports;
 using OpenQA.Selenium;
 
 namespace CourseEvaluation.Pages;
 
 public class InventoryPage : TestBase
 {
-	private readonly By aboutLink = By.XPath("//a[@id='about_sidebar_link']");
-
-	private readonly By addCartSauceLabsBackpackToCartButton =
-		By.Id("add-to-cart-sauce-labs-backpac");
-
-	private readonly By addToCartButtons = By.XPath("//button[@class='btn btn_primary btn_small btn_inventory ']");
-	private readonly By allItemsLink = By.XPath("//a[@id='inventory_sidebar_link']");
-
-	private readonly By cartButton = By.XPath("//div[@id='shopping_cart_container']/a");
-	private readonly By itemsPrice = By.XPath("//div[@class='inventory_item_price']");
-	private readonly By itemsSuite = By.XPath("//div[@class='inventory_item']//div[@class='inventory_item_name ']");
-	private readonly By logoutLink = By.XPath("//a[@id='logout_sidebar_link']");
-
-	private readonly By sauceLabsBackpack = By.XPath("//div[text()='Sauce Labs Backpack']");
-	private readonly By sidebarButton = By.XPath("//div[@class='bm-burger-button']");
-	private readonly By sortAtoZButton = By.XPath("//select[@class='product_sort_container']//option[@value='az']");
-	private readonly By sortContainer = By.XPath("//select[@class='product_sort_container']");
-
-	private readonly By sortPriceHighToLow =
-		By.XPath("//select[@class='product_sort_container']//option[@value='hilo']");
-
-	private readonly By sortPriceLowToHigh =
-		By.XPath("//select[@class='product_sort_container']//option[@value='lohi']");
-
-	private readonly By sortZtoAButton = By.XPath("//select[@class='product_sort_container']//option[@value='za']");
+	private By aboutLink = By.XPath("//a[@id='about_sidebar_link']");
+	private By addCartSauceLabsBackpackToCartButton = By.Id("add-to-cart-sauce-labs-backpack");
+	private By addToCartButtons = By.XPath("//button[@class='btn btn_primary btn_small btn_inventory ']");
+	private By allItemsLink = By.XPath("//a[@id='inventory_sidebar_link']");
+	private By cartButton = By.XPath("//div[@id='shopping_cart_container']/a");
+	private By itemsPrice = By.XPath("//div[@class='inventory_item_price']");
+	private By itemsSuite = By.XPath("//div[@class='inventory_item']//div[@class='inventory_item_name ']");
+	private By logoutLink = By.XPath("//a[@id='logout_sidebar_link']");
+	private By sauceLabsBackpack = By.XPath("//div[text()='Sauce Labs Backpack']");
+	private By sidebarButton = By.XPath("//div[@class='bm-burger-button']");
+	private By sortContainer = By.XPath("//select[@class='product_sort_container']");
+	private By sortAtoZButton = By.XPath("//select[@class='product_sort_container']//option[@value='az']");
+	private By sortZtoAButton = By.XPath("//select[@class='product_sort_container']//option[@value='za']");
+	private By sortPriceHighToLow = By.XPath("//select[@class='product_sort_container']//option[@value='hilo']");
+	private By sortPriceLowToHigh = By.XPath("//select[@class='product_sort_container']//option[@value='lohi']");
 
 	public InventoryPage(IWebDriver driver)
 	{
@@ -190,24 +181,32 @@ public class InventoryPage : TestBase
 	public void ClickSortContainerAtoZButton()
 	{
 		driver.FindElement(sortContainer).Click();
+		report.Log(Status.Info, "Drop-down list with sorting options is opened");
 		driver.FindElement(sortAtoZButton).Click();
+		report.Log(Status.Info, "\"Name (A to Z)\" sorting is selected");
 	}
 
 	public void ClickSortContainerZtoAButton()
 	{
 		driver.FindElement(sortContainer).Click();
+		report.Log(Status.Info, "Drop-down list with sorting options is opened");
 		driver.FindElement(sortZtoAButton).Click();
+		report.Log(Status.Info, "\"Name (Z to A)\" sorting is selected");
 	}
 
 	public void ClickPriceLowToHighButton()
 	{
 		driver.FindElement(sortContainer).Click();
+		report.Log(Status.Info, "Drop-down list with sorting options is opened");
 		driver.FindElement(sortPriceLowToHigh).Click();
+		report.Log(Status.Info, "\"Price (low to high)\" sorting is selected");
 	}
 
 	public void ClickPriceHighToLowButton()
 	{
 		driver.FindElement(sortContainer).Click();
+		report.Log(Status.Info, "Drop-down list with sorting options is opened");
 		driver.FindElement(sortPriceHighToLow).Click();
+		report.Log(Status.Info, "\"Price (high to low)\" sorting is selected");
 	}
 }

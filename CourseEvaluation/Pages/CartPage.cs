@@ -6,14 +6,11 @@ namespace CourseEvaluation.Pages;
 
 public class CartPage : TestBase
 {
-	private readonly By checkoutButton = By.Id("checkout");
-	private readonly By continueShoppingButton = By.Id("continue-shopping");
-	private readonly By listOfItems = By.ClassName("cart_item");
-
-	private readonly By removeButton =
-		By.XPath("//div[@class='cart_list']/div[@class='cart_item'][1]//button[text()='Remove']");
-
-	private readonly By removeButtons = By.XPath("//button[@class='btn_secondary cart_button']");
+	private By checkoutButton = By.Id("checkout");
+	private By continueShoppingButton = By.Id("continue-shopping");
+	private By listOfItems = By.ClassName("cart_item");
+	private By removeButton = By.XPath("//div[@class='cart_list']/div[@class='cart_item'][1]//button[text()='Remove']");
+	private By removeButtons = By.XPath("//button[@class='btn_secondary cart_button']");
 
 	public CartPage(IWebDriver driver)
 	{
@@ -23,6 +20,7 @@ public class CartPage : TestBase
 	public void RemoveOneItemFromCart()
 	{
 		driver.FindElement(removeButton).Click();
+		report.Log(Status.Info, "\"Remove\" button is clicked");
 	}
 
 	public void RemoveAllItemsFromCart()
@@ -40,11 +38,12 @@ public class CartPage : TestBase
 	public void ClickCheckoutButton()
 	{
 		driver.FindElement(checkoutButton).Click();
-		report.Log(Status.Info, "Checkout Button is clicked");
+		report.Log(Status.Info, "\"Checkout\" button is clicked");
 	}
 
 	public void ClickContinueShoppingButton()
 	{
 		driver.FindElement(continueShoppingButton).Click();
+		report.Log(Status.Info, "\"Continue Shopping\" button is clicked");
 	}
 }

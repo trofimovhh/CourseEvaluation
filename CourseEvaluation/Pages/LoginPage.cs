@@ -23,11 +23,11 @@ public class LoginPage : TestBase
 	public void Login(string login, string password)
 	{
 		usernameInput.SendKeys(login);
-		report.Log(Status.Info, $"Text {login} entered in the username field");
+		// report.Log(Status.Info, $"Text \"{login}\" entered in the username field");
 		passwordInput.SendKeys(password);
-		report.Log(Status.Info, $"Text {password} entered in the password field");
+		// report.Log(Status.Info, $"Text \"{password}\" entered in the password field");
 		loginButton.Click();
-		report.Log(Status.Info, "\"Login\" button clicked");
+		// report.Log(Status.Info, "\"Login\" button clicked");
 	}
 
 	public string GetErrorNotificationUsername()
