@@ -1,8 +1,10 @@
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Model;
 using OpenQA.Selenium;
 
 namespace CourseEvaluation.Pages;
 
-public class CartPage : WebDriverInit
+public class CartPage : TestBase
 {
 	private readonly By checkoutButton = By.Id("checkout");
 	private readonly By continueShoppingButton = By.Id("continue-shopping");
@@ -15,7 +17,7 @@ public class CartPage : WebDriverInit
 
 	public CartPage(IWebDriver driver)
 	{
-		WebDriverInit.driver = driver;
+		TestBase.driver = driver;
 	}
 
 	public void RemoveOneItemFromCart()
@@ -38,6 +40,7 @@ public class CartPage : WebDriverInit
 	public void ClickCheckoutButton()
 	{
 		driver.FindElement(checkoutButton).Click();
+		report.Log(Status.Info, "Checkout Button is clicked");
 	}
 
 	public void ClickContinueShoppingButton()

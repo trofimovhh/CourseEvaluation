@@ -1,8 +1,9 @@
+using AventStack.ExtentReports;
 using OpenQA.Selenium;
 
 namespace CourseEvaluation.Pages;
 
-public class OrderOverviewPage : WebDriverInit
+public class OrderOverviewPage : TestBase
 {
 	private readonly By cancelButton = By.Id("cancel");
 
@@ -10,7 +11,7 @@ public class OrderOverviewPage : WebDriverInit
 
 	public OrderOverviewPage(IWebDriver driver)
 	{
-		WebDriverInit.driver = driver;
+		TestBase.driver = driver;
 	}
 
 	public void ClickFinishButton()

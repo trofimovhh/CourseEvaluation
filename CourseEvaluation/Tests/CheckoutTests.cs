@@ -1,10 +1,11 @@
-﻿using CourseEvaluation.Pages;
+﻿using AventStack.ExtentReports;
+using CourseEvaluation.Pages;
 using NUnit.Framework;
 using static CourseEvaluation.Data.UserData;
 
 namespace CourseEvaluation.Tests;
 
-public class CheckoutTests : WebDriverInit
+public class CheckoutTests : TestBase
 {
 	[Test(Description =
 		"Test confirms impossibility to make a purchase with an empty First Name field in the Checkout page.")]
@@ -16,7 +17,7 @@ public class CheckoutTests : WebDriverInit
 		var cart = new CartPage(driver);
 		var checkoutPage = new CheckoutPage(driver);
 		loginPage.Login(userNameLogin, userPassword);
-
+		
 		// Act
 		inventoryPage.ClickAddCartSauceLabsBackpackButton();
 		inventoryPage.ClickCartButton();

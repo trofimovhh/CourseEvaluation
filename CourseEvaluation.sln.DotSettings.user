@@ -1,4 +1,6 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e6112047_002Df4ef_002D4cab_002D946e_002D7ea5ec8422d4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="PriceLowToHigh" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;ProjectFolder&gt;3BE39423-F938-4FE2-A628-34CDFB57BF1A/d:Tests&lt;/ProjectFolder&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2d3e9b97_002D41b5_002D4268_002Dabba_002Dfe68adf8e5e1/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CorrectLoginPassword" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::3BE39423-F938-4FE2-A628-34CDFB57BF1A::net7.0::CourseEvaluation.Tests.LogonTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

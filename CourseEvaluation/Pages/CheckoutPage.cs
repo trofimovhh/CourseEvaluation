@@ -1,8 +1,10 @@
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Model;
 using OpenQA.Selenium;
 
 namespace CourseEvaluation.Pages;
 
-public class CheckoutPage : WebDriverInit
+public class CheckoutPage : TestBase
 {
 	private readonly By continueButton = By.Id("continue");
 
@@ -17,7 +19,7 @@ public class CheckoutPage : WebDriverInit
 
 	public CheckoutPage(IWebDriver driver)
 	{
-		WebDriverInit.driver = driver;
+		TestBase.driver = driver;
 	}
 
 	public void FillFields(string firstname, string lastName, string postalCode)

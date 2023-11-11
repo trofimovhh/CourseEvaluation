@@ -2,14 +2,14 @@ using OpenQA.Selenium;
 
 namespace CourseEvaluation.Pages;
 
-public class InventoryPage : WebDriverInit
+public class InventoryPage : TestBase
 {
 	private readonly By aboutLink = By.XPath("//a[@id='about_sidebar_link']");
 
 	private readonly By addCartSauceLabsBackpackToCartButton =
-		By.Id("add-to-cart-sauce-labs-backpack");
+		By.Id("add-to-cart-sauce-labs-backpac");
 
-	private readonly By addToCartButtons = By.XPath("//button[@class='btn_primary btn_inventory']");
+	private readonly By addToCartButtons = By.XPath("//button[@class='btn btn_primary btn_small btn_inventory ']");
 	private readonly By allItemsLink = By.XPath("//a[@id='inventory_sidebar_link']");
 
 	private readonly By cartButton = By.XPath("//div[@id='shopping_cart_container']/a");
@@ -32,7 +32,7 @@ public class InventoryPage : WebDriverInit
 
 	public InventoryPage(IWebDriver driver)
 	{
-		WebDriverInit.driver = driver;
+		TestBase.driver = driver;
 	}
 
 	public int GetItemsSuiteInt()

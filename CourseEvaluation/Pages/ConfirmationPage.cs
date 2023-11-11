@@ -2,11 +2,11 @@ using OpenQA.Selenium;
 
 namespace CourseEvaluation.Pages;
 
-public class ConfirmationPage : WebDriverInit
+public class ConfirmationPage : TestBase
 {
 	public ConfirmationPage(IWebDriver driver)
 	{
-		WebDriverInit.driver = driver;
+		TestBase.driver = driver;
 	}
 
 	public string GetGratitudeNotification()

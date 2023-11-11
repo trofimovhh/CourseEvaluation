@@ -7,32 +7,31 @@ using OpenQA.Selenium.Chrome;
 
 namespace CourseEvaluation;
 
-public class WebDriverInit
+public class TestBase
 {
 	protected static IWebDriver driver;
-	private ExtentReports extent;
-	private ExtentTest test;
+	private static ExtentReports extentReport;
+	protected static ExtentTest report;
 
 	[OneTimeSetUp]
 	public void OneTimeSetUp()
 	{
-		extent = new ExtentReports();
+		extentReport = new ExtentReports();
 		var spark = new ExtentSparkReporter(
 			@"C:\Users\user\RiderProjects\CourseEvaluation\CourseEvaluation\Reports\Report.html");
-		extent.AttachReporter(spark);
+		extentReport.AttachReporter(spark);
 	}
 
 	[OneTimeTearDown]
 	public void OneTimeTearDown()
 	{
-		extent.Flush();
+		extentReport.Flush();
 	}
-
 
 	[SetUp]
 	public void SetUp()
 	{
-		test = extent.CreateTest(TestContext.CurrentContext.Test.Name);
+		report = extentReport.CreateTest(TestContext.CurrentContext.Test.Name);
 		driver = new ChromeDriver();
 		driver.Url = "https://www.saucedemo.com";
 		driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
@@ -57,6 +56,6 @@ public class WebDriverInit
 				break;
 		}
 
-		test.Log(logstatus, "Test ended with " + logstatus + stacktrace);
+		report.Log(logstatus, "Test ended with " + logstatus + stacktrace);
 	}
 }

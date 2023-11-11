@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace CourseEvaluation.Tests;
 
-public class SortTests : WebDriverInit
+public class SortTests : TestBase
 {
 	[Test(Description = "Test verifies sorting product items from A to Z by alphabetic")]
 	public void NameAtoZ()

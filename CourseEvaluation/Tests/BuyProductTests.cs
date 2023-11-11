@@ -1,10 +1,11 @@
+using AventStack.ExtentReports;
 using CourseEvaluation.Pages;
 using NUnit.Framework;
 using static CourseEvaluation.Data.UserData;
 
 namespace CourseEvaluation.Tests;
 
-public class BuyProductTests : WebDriverInit
+public class BuyProductTests : TestBase
 {
 	[Test(Description = "E2E test, that checks possibility to login with correct data and make a purchase.")]
 	public void BuyProduct()
@@ -19,12 +20,20 @@ public class BuyProductTests : WebDriverInit
 
 		// Act
 		loginPage.Login(userNameLogin, userPassword);
+		report.Log(Status.Info, "User logged in");
+		report.Log(Status.Info, "User is adding a backpack");
 		inventoryPage.ClickAddCartSauceLabsBackpackButton();
+		report.Log(Status.Info, "Backpack is added to the cart");
 		inventoryPage.ClickCartButton();
+		report.Log(Status.Info, "User clicked on the Cart button");
 		cart.ClickCheckoutButton();
+		report.Log(Status.Info, "User clicked on the Checkout button");
 		checkoutPage.FillFields(firstName, lastName, postalCode);
+		report.Log(Status.Info, "User filled out delivery form");
 		checkoutPage.ClickContinueButton();
+		report.Log(Status.Info, "User clicked on Continue button");
 		orderOverviewPage.ClickFinishButton();
+		report.Log(Status.Info, "User successfully finished the purchase");
 
 		// Assert
 		Assert.That(confirmationPage.GetGratitudeNotification(), Is.EqualTo("Thank you for your order!"));
@@ -47,6 +56,7 @@ public class BuyProductTests : WebDriverInit
 		inventoryPage.ClickSauceLabsBackpack();
 		itemPage.ClickAddToCartButton();
 		itemPage.ClickCartButton();
+		report.Log(Status.Info, "Cart Button is clicked, bro");
 		cart.ClickCheckoutButton();
 		checkoutPage.FillFields(firstName, lastName, postalCode);
 		checkoutPage.ClickContinueButton();

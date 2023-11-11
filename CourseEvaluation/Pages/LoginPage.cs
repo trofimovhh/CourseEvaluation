@@ -1,26 +1,33 @@
+using AventStack.ExtentReports;
 using OpenQA.Selenium;
 
 namespace CourseEvaluation.Pages;
 
-public class LoginPage : WebDriverInit
+public class LoginPage : TestBase
 {
-	private readonly string errorNotificationPassword = "Epic sadface: Password is required";
-
-	private readonly string errorNotificationUsername = "Epic sadface: Username is required";
-
-	private readonly string errorUsernameAndPassDoNotMatch =
-		"Epic sadface: Username and password do not match any user in this service";
-
 	public LoginPage(IWebDriver driver)
 	{
-		WebDriverInit.driver = driver;
+		TestBase.driver = driver;
 	}
+
+	private string errorNotificationPassword = "Epic sadface: Password is required";
+	private string errorNotificationUsername = "Epic sadface: Username is required";
+
+	private string errorUsernameAndPassDoNotMatch =
+		"Epic sadface: Username and password do not match any user in this service";
+
+	private IWebElement usernameInput = driver.FindElement(By.XPath("//input[@id='user-name']"));
+	private IWebElement passwordInput = driver.FindElement(By.XPath("//input[@id='password']"));
+	private IWebElement loginButton = driver.FindElement(By.Id("login-button"));
 
 	public void Login(string login, string password)
 	{
-		driver.FindElement(By.XPath("//input[@id='user-name']")).SendKeys(login);
-		driver.FindElement(By.XPath("//input[@id='password']")).SendKeys(password);
-		driver.FindElement(By.Id("login-button")).Click();
+		usernameInput.SendKeys(login);
+		report.Log(Status.Info, $"Text {login} entered in the username field");
+		passwordInput.SendKeys(password);
+		report.Log(Status.Info, $"Text {password} entered in the password field");
+		loginButton.Click();
+		report.Log(Status.Info, "\"Login\" button clicked");
 	}
 
 	public string GetErrorNotificationUsername()
