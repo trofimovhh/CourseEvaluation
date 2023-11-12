@@ -20,7 +20,6 @@ public class CartPage : TestBase
 	public void RemoveOneItemFromCart()
 	{
 		driver.FindElement(removeButton).Click();
-		report.Log(Status.Info, "\"Remove\" button is clicked");
 	}
 
 	public void RemoveAllItemsFromCart()
@@ -38,12 +37,10 @@ public class CartPage : TestBase
 	public void ClickCheckoutButton()
 	{
 		driver.FindElement(checkoutButton).Click();
-		report.Log(Status.Info, "\"Checkout\" button is clicked");
 	}
 
 	public void ClickContinueShoppingButton()
 	{
 		driver.FindElement(continueShoppingButton).Click();
-		report.Log(Status.Info, "\"Continue Shopping\" button is clicked");
 	}
 }

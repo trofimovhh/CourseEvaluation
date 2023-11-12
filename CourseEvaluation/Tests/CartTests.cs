@@ -25,7 +25,7 @@ public class CartTests : TestBase
 
 		// Assert
 		Assert.That(cart.ListOfItems(), Is.EqualTo(1));
-		report.Log(Status.Info, "User added an item; the number of items in the cart is 1");
+		report.Log(Status.Info, $"The number of items in the cart is {cart.ListOfItems()}");
 	}
 
 	[Test(Description =
@@ -49,7 +49,7 @@ public class CartTests : TestBase
 
 		// Assert
 		Assert.That(cart.ListOfItems(), Is.EqualTo(0));
-		report.Log(Status.Info, "User removed an item from the cart; the number of items in the cart is now 0");
+		report.Log(Status.Info, $"The number of items in the cart is {cart.ListOfItems()}");
 	}
 
 
@@ -74,8 +74,7 @@ public class CartTests : TestBase
 
 		// Assert
 		Assert.That(cart.ListOfItems(), Is.EqualTo(5));
-		report.Log(Status.Info,
-			$"The item has been successfully removed from the cart; the number of items in the cart is {cart.ListOfItems()}");
+		report.Log(Status.Info, $"The number of items in the cart is {cart.ListOfItems()}");
 	}
 
 	[Test(Description =
@@ -87,14 +86,19 @@ public class CartTests : TestBase
 		var inventoryPage = new InventoryPage(driver);
 		var cart = new CartPage(driver);
 		loginPage.Login(UserData.userNameLogin, UserData.userPassword);
+		report.Log(Status.Info, "User successfully logs into the system");
 		inventoryPage.ClickAddCartSauceLabsBackpackButton();
+		report.Log(Status.Info, "User adds a backpack to the cart");
 		inventoryPage.ClickCartButton();
 		report.Log(Status.Info, "User navigates to the cart page");
 
 		//Act
 		cart.ClickContinueShoppingButton();
+		report.Log(Status.Info, "User clicks on the \"Continue Shopping\" button");
 
 		// Assert
 		Assert.That(inventoryPage.GetItemsSuiteInt(), Is.EqualTo(6));
+		report.Log(Status.Info,
+			$"User navigates to the inventory page; there are {inventoryPage.GetItemsSuiteInt()} items on the page.");
 	}
 }
