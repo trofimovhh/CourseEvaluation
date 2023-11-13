@@ -14,18 +14,17 @@ public class CartTests : TestBase
 		var loginPage = new LoginPage(driver);
 		var inventoryPage = new InventoryPage(driver);
 		var cart = new CartPage(driver);
+		report.Log(Status.Info, "User logs into the system");
 		loginPage.Login(UserData.userNameLogin, UserData.userPassword);
-		report.Log(Status.Info, "User successfully logs into the system");
+		report.Log(Status.Info, "User adds a backpack to the cart");
+		inventoryPage.ClickAddCartSauceLabsBackpackButton();
 
 		//Act
-		inventoryPage.ClickAddCartSauceLabsBackpackButton();
-		report.Log(Status.Info, "User adds a backpack to the cart");
-		inventoryPage.ClickCartButton();
 		report.Log(Status.Info, "User navigates to the cart page");
-
+		inventoryPage.ClickCartButton();
 		// Assert
-		Assert.That(cart.ListOfItems(), Is.EqualTo(1));
 		report.Log(Status.Info, $"The number of items in the cart is {cart.ListOfItems()}");
+		Assert.That(cart.ListOfItems(), Is.EqualTo(1));
 	}
 
 	[Test(Description =
@@ -36,41 +35,41 @@ public class CartTests : TestBase
 		var loginPage = new LoginPage(driver);
 		var inventoryPage = new InventoryPage(driver);
 		var cart = new CartPage(driver);
+		report.Log(Status.Info, "User logs into the system");
 		loginPage.Login(UserData.userNameLogin, UserData.userPassword);
-		report.Log(Status.Info, "User successfully logs into the system");
-		inventoryPage.ClickAddCartSauceLabsBackpackButton();
 		report.Log(Status.Info, "User adds a backpack to the cart");
-		inventoryPage.ClickCartButton();
+		inventoryPage.ClickAddCartSauceLabsBackpackButton();
 		report.Log(Status.Info, "User navigates to the cart page");
+		inventoryPage.ClickCartButton();
 
 		//Act
-		cart.RemoveOneItemFromCart();
 		report.Log(Status.Info, "User removes one item from the cart");
+		cart.RemoveOneItemFromCart();
 
 		// Assert
-		Assert.That(cart.ListOfItems(), Is.EqualTo(0));
 		report.Log(Status.Info, $"The number of items in the cart is {cart.ListOfItems()}");
+		Assert.That(cart.ListOfItems(), Is.EqualTo(0));
 	}
 
 
 	[Test(Description = "Test confirms possibility to add all product items to cart and then remove one item.")]
-	public void AddAllItemsToCartAndThenRemoveOneItem()
+	public void AddAllItemsToCartThenRemoveOneItem()
 	{
 		// Arrange
 		var loginPage = new LoginPage(driver);
 		var inventoryPage = new InventoryPage(driver);
 		var cart = new CartPage(driver);
+		report.Log(Status.Info, "User logs into the system");
 		loginPage.Login(UserData.userNameLogin, UserData.userPassword);
-		report.Log(Status.Info, "User successfully logs into the system");
-		inventoryPage.AddAllItemsOfProductsToCart();
 		report.Log(Status.Info, "User adds all items to the cart");
-		inventoryPage.ClickCartButton();
+		inventoryPage.AddAllItemsOfProductsToCart();
 		report.Log(Status.Info, "User navigates to the cart page");
+		inventoryPage.ClickCartButton();
 		report.Log(Status.Info, $"The number of items in the cart is {cart.ListOfItems()}");
 
 		//Act
-		cart.RemoveOneItemFromCart();
 		report.Log(Status.Info, "User removes one item from the cart");
+		cart.RemoveOneItemFromCart();
 
 		// Assert
 		Assert.That(cart.ListOfItems(), Is.EqualTo(5));
@@ -85,20 +84,20 @@ public class CartTests : TestBase
 		var loginPage = new LoginPage(driver);
 		var inventoryPage = new InventoryPage(driver);
 		var cart = new CartPage(driver);
+		report.Log(Status.Info, "User logs into the system");
 		loginPage.Login(UserData.userNameLogin, UserData.userPassword);
-		report.Log(Status.Info, "User successfully logs into the system");
-		inventoryPage.ClickAddCartSauceLabsBackpackButton();
 		report.Log(Status.Info, "User adds a backpack to the cart");
-		inventoryPage.ClickCartButton();
+		inventoryPage.ClickAddCartSauceLabsBackpackButton();
 		report.Log(Status.Info, "User navigates to the cart page");
+		inventoryPage.ClickCartButton();
 
 		//Act
-		cart.ClickContinueShoppingButton();
 		report.Log(Status.Info, "User clicks on the \"Continue Shopping\" button");
+		cart.ClickContinueShoppingButton();
 
 		// Assert
-		Assert.That(inventoryPage.GetItemsSuiteInt(), Is.EqualTo(6));
 		report.Log(Status.Info,
 			$"User navigates to the inventory page; there are {inventoryPage.GetItemsSuiteInt()} items on the page.");
+		Assert.That(inventoryPage.GetItemsSuiteInt(), Is.EqualTo(6));
 	}
 }

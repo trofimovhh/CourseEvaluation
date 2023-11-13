@@ -5,7 +5,6 @@ namespace CourseEvaluation.Pages;
 public class OrderOverviewPage : TestBase
 {
 	private readonly By cancelButton = By.Id("cancel");
-
 	private readonly By finishButton = By.Id("finish");
 
 	public OrderOverviewPage(IWebDriver driver)
