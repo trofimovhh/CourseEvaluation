@@ -7,7 +7,7 @@ namespace CourseEvaluation.Tests;
 
 public class EndToEndTests : TestBase
 {
-	[Test(Description = "E2E test, that checks possibility to login with correct data and make a purchase.")]
+	[Test(Description = "End-to-end test, that checks possibility to login with correct credentials and make a purchase.")]
 	public void BuyProduct()
 	{
 		// Arrange

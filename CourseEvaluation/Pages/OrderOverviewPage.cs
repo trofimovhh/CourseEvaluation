@@ -1,4 +1,3 @@
-using AventStack.ExtentReports;
 using OpenQA.Selenium;
 
 namespace CourseEvaluation.Pages;
