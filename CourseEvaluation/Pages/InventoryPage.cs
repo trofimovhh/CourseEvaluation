@@ -180,33 +180,33 @@ public class InventoryPage : TestBase
 
 	public void ClickSortContainerAtoZButton()
 	{
+		report.Log(Status.Info, "User opens drop-down list with sorting options");
 		driver.FindElement(sortContainer).Click();
-		report.Log(Status.Info, "Drop-down list with sorting options is opened");
+		report.Log(Status.Info, "User selects \"Name (A to Z)\" sorting");
 		driver.FindElement(sortAtoZButton).Click();
-		report.Log(Status.Info, "\"Name (A to Z)\" sorting is selected");
 	}
 
 	public void ClickSortContainerZtoAButton()
 	{
-		driver.FindElement(sortContainer).Click();
 		report.Log(Status.Info, "Drop-down list with sorting options is opened");
+		driver.FindElement(sortContainer).Click();
+		report.Log(Status.Info, "User selects \"Name (Z to A)\" sorting");
 		driver.FindElement(sortZtoAButton).Click();
-		report.Log(Status.Info, "\"Name (Z to A)\" sorting is selected");
 	}
 
 	public void ClickPriceLowToHighButton()
 	{
-		driver.FindElement(sortContainer).Click();
 		report.Log(Status.Info, "Drop-down list with sorting options is opened");
+		driver.FindElement(sortContainer).Click();
+		report.Log(Status.Info, "User selects \"Price (low to high)\" sorting");
 		driver.FindElement(sortPriceLowToHigh).Click();
-		report.Log(Status.Info, "\"Price (low to high)\" sorting is selected");
 	}
 
 	public void ClickPriceHighToLowButton()
 	{
-		driver.FindElement(sortContainer).Click();
 		report.Log(Status.Info, "Drop-down list with sorting options is opened");
+		driver.FindElement(sortContainer).Click();
+		report.Log(Status.Info, "User selects \"Price (high to low)\" sorting");
 		driver.FindElement(sortPriceHighToLow).Click();
-		report.Log(Status.Info, "\"Price (high to low)\" sorting is selected");
 	}
 }

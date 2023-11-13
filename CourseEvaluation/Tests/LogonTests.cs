@@ -15,12 +15,12 @@ public class LogonTests : TestBase
 		var inventoryPage = new InventoryPage(driver);
 
 		// Act
-		report.Log(Status.Info, "Login verification with correct username and password.");
+		report.Log(Status.Info, "User logs in with correct username and password");
 		loginPage.Login(userNameLogin, userPassword);
 
 		// Assert
+		report.Log(Status.Info, "User navigates to the product page");
 		Assert.IsTrue(inventoryPage.GetVisibleCartButton().Displayed);
-		report.Log(Status.Info, "User successfully logs into the system");
 	}
 
 	[Test(Description = "Login with empty Username field")]
@@ -30,13 +30,13 @@ public class LogonTests : TestBase
 		var loginPage = new LoginPage(driver);
 
 		// Act
-		report.Log(Status.Info, "Login verification with empty string in the username field");
-		loginPage.Login(emptyString, userPassword);
+		report.Log(Status.Info, "User logs in with empty username field");
+		loginPage.Login(password: userPassword);
 
 		// Assert
+		report.Log(Status.Info, "User receives a message: \"Username is required\"");
 		Assert.That(loginPage.LoginErrorNotification(),
 			Is.EqualTo(loginPage.GetErrorNotificationUsername()));
-		report.Log(Status.Info, "User receives a message: \"Username is required\"");
 	}
 
 	[Test(Description = "Login with empty Password and see notification about the requirement of Password data")]
@@ -46,12 +46,12 @@ public class LogonTests : TestBase
 		var loginPage = new LoginPage(driver);
 
 		// Act
-		report.Log(Status.Info, "Login verification with empty string in the password field");
-		loginPage.Login(userNameLogin, emptyString);
+		report.Log(Status.Info, "User logs in with empty password field");
+		loginPage.Login(login: userNameLogin);
 
 		// Assert
-		Assert.AreEqual(loginPage.GetErrorNotificationPassword(), loginPage.LoginErrorNotification());
 		report.Log(Status.Info, "User receives a message: \"Password is required\"");
+		Assert.AreEqual(loginPage.GetErrorNotificationPassword(), loginPage.LoginErrorNotification());
 	}
 
 	[Test(Description =
@@ -62,13 +62,13 @@ public class LogonTests : TestBase
 		var loginPage = new LoginPage(driver);
 
 		// Act
-		report.Log(Status.Info, "Login verification with incorrect username");
+		report.Log(Status.Info, "User logs in with incorrect username");
 		loginPage.Login(incorrectUsername, userPassword);
 
 		// Assert
-		Assert.AreEqual(loginPage.GetStrUsernameAndPassDoNotMatch(), loginPage.LoginErrorNotification());
 		report.Log(Status.Info,
 			"User receives a message: \"Username and password do not match any user in this service\"");
+		Assert.AreEqual(loginPage.GetStrUsernameAndPassDoNotMatch(), loginPage.LoginErrorNotification());
 	}
 
 	[Test(Description =
@@ -79,12 +79,12 @@ public class LogonTests : TestBase
 		var loginPage = new LoginPage(driver);
 
 		// Act
-		report.Log(Status.Info, "Login verification with incorrect username");
+		report.Log(Status.Info, "User logs in with incorrect password");
 		loginPage.Login(userNameLogin, incorrectPassword);
 
 		// Assert
-		Assert.AreEqual(loginPage.GetStrUsernameAndPassDoNotMatch(), loginPage.LoginErrorNotification());
 		report.Log(Status.Info,
 			"User receives a message: \"Username and password do not match any user in this service\"");
+		Assert.AreEqual(loginPage.GetStrUsernameAndPassDoNotMatch(), loginPage.LoginErrorNotification());
 	}
 }
