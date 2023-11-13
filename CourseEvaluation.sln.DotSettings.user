@@ -9,5 +9,6 @@
     &lt;TestId&gt;NUnit3x::3BE39423-F938-4FE2-A628-34CDFB57BF1A::net7.0::CourseEvaluation.Tests.CheckoutTests.CheckoutWithEmptyPostalCode&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::3BE39423-F938-4FE2-A628-34CDFB57BF1A::net7.0::CourseEvaluation.Tests.CheckoutTests.CheckoutWithEmptyFirstName&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::3BE39423-F938-4FE2-A628-34CDFB57BF1A::net7.0::CourseEvaluation.Tests.CheckoutTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::3BE39423-F938-4FE2-A628-34CDFB57BF1A::net7.0::CourseEvaluation.Tests.EndToEndTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

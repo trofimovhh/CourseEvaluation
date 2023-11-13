@@ -17,24 +17,25 @@ public class EndToEndTests : TestBase
 		var checkoutPage = new CheckoutPage(driver);
 		var orderOverviewPage = new OrderOverviewPage(driver);
 		var confirmationPage = new ConfirmationPage(driver);
+
+		report.Log(Status.Info, "User logs into the system");
 		loginPage.Login(userNameLogin, userPassword);
-		report.Log(Status.Info, "User successfully logs into the system");
-		inventoryPage.ClickAddCartSauceLabsBackpackButton();
 		report.Log(Status.Info, "User adds a backpack to the cart");
-		inventoryPage.ClickCartButton();
+		inventoryPage.ClickAddCartSauceLabsBackpackButton();
 		report.Log(Status.Info, "User navigates to the cart page");
-		cart.ClickCheckoutButton();
+		inventoryPage.ClickCartButton();
 		report.Log(Status.Info, "User navigates to the checkout page");
+		cart.ClickCheckoutButton();
+		report.Log(Status.Info, "User fills out the delivery form");
 		checkoutPage.FillOutForm(firstName, lastName, postalCode);
-		report.Log(Status.Info, "User filled out delivery form");
 
 		// Act
+		report.Log(Status.Info, "User completes the purchase");
 		orderOverviewPage.ClickFinishButton();
-		report.Log(Status.Info, "User successfully finished the purchase");
 
 		// Assert
+		report.Log(Status.Info, "User receives a confirmation message");
 		Assert.That(confirmationPage.GetGratitudeNotification(), Is.EqualTo("Thank you for your order!"));
-		report.Log(Status.Info, "User received a purchase confirmation message");
 	}
 
 	[Test(Description = "Test checks the possibility to make a purchase from the product's page.")]
@@ -48,26 +49,27 @@ public class EndToEndTests : TestBase
 		var checkoutPage = new CheckoutPage(driver);
 		var orderOverviewPage = new OrderOverviewPage(driver);
 		var confirmationPage = new ConfirmationPage(driver);
+		
+		report.Log(Status.Info, "User logs into the system");
 		loginPage.Login(userNameLogin, userPassword);
-		report.Log(Status.Info, "User successfully logs into the system");
-		inventoryPage.ClickSauceLabsBackpack();
 		report.Log(Status.Info, "User navigates to the backpack product page");
-		itemPage.ClickAddToCartButton();
+		inventoryPage.ClickSauceLabsBackpack();
 		report.Log(Status.Info, "User adds the item to the cart");
-		itemPage.ClickCartButton();
+		itemPage.ClickAddToCartButton();
 		report.Log(Status.Info, "User navigates to the cart page");
-		cart.ClickCheckoutButton();
+		itemPage.ClickCartButton();
 		report.Log(Status.Info, "User navigates to the checkout page");
+		cart.ClickCheckoutButton();
+		report.Log(Status.Info, "User fills out the delivery form");
 		checkoutPage.FillOutForm(firstName, lastName, postalCode);
-		report.Log(Status.Info, "User filled out delivery form");
 
 		// Act
+		report.Log(Status.Info, "User completes the purchase");
 		orderOverviewPage.ClickFinishButton();
-		report.Log(Status.Info, "User successfully finished the purchase");
 
 		// Assert
+		report.Log(Status.Info, "User receives a confirmation message");
 		Assert.That(confirmationPage.GetGratitudeNotification(), Is.EqualTo("Thank you for your order!"));
-		report.Log(Status.Info, "User received a purchase confirmation message");
 	}
 
 	[Test(Description =
@@ -80,22 +82,23 @@ public class EndToEndTests : TestBase
 		var cart = new CartPage(driver);
 		var checkoutPage = new CheckoutPage(driver);
 		var orderOverviewPage = new OrderOverviewPage(driver);
-		var confirmationPage = new ConfirmationPage(driver);
+		report.Log(Status.Info, "User logs into the system");
 		loginPage.Login(userNameLogin, userPassword);
-		report.Log(Status.Info, "User successfully logs into the system");
-		inventoryPage.ClickAddCartSauceLabsBackpackButton();
 		report.Log(Status.Info, "User adds a backpack to the cart");
-		inventoryPage.ClickCartButton();
+		inventoryPage.ClickAddCartSauceLabsBackpackButton();
 		report.Log(Status.Info, "User navigates to the cart page");
-		cart.ClickCheckoutButton();
+		inventoryPage.ClickCartButton();
 		report.Log(Status.Info, "User navigates to the checkout page");
+		cart.ClickCheckoutButton();
+		report.Log(Status.Info, "User fills out delivery form");
 		checkoutPage.FillOutForm(firstName, lastName, postalCode);
-		report.Log(Status.Info, "User filled out delivery form");
-		
+
 		// Act
+		report.Log(Status.Info, "User cancels the purchase");
 		orderOverviewPage.ClickCancelButton();
 
 		// Assert
+		report.Log(Status.Info, "User returns to the inventory page");
 		Assert.That(inventoryPage.GetItemsSuiteInt(), Is.EqualTo(6));
 	}
 }
