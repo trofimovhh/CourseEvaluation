@@ -4,7 +4,7 @@ namespace CourseEvaluation.Pages;
 
 public class ItemPage : TestBase
 {
-	private readonly By addToCartButton = By.Id("add-to-cart-sauce-labs-backpack");
+	private readonly By addToCartButton = By.Id("add-to-cart");
 	private readonly By cartButton = By.XPath("//div[@id='shopping_cart_container']/a");
 
 	public ItemPage(IWebDriver driver)

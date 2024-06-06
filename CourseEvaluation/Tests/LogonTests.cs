@@ -20,7 +20,7 @@ public class LogonTests : TestBase
 
 		// Assert
 		report.Log(Status.Info, "User navigates to the product page");
-		Assert.IsTrue(inventoryPage.GetVisibleCartButton().Displayed);
+		Assert.That(inventoryPage.GetVisibleCartButton().Displayed);
 	}
 
 	[Test(Description = "Login with empty Username field")]
@@ -51,7 +51,7 @@ public class LogonTests : TestBase
 
 		// Assert
 		report.Log(Status.Info, "User receives a message: \"Password is required\"");
-		Assert.AreEqual(loginPage.GetErrorNotificationPassword(), loginPage.LoginErrorNotification());
+		Assert.That(loginPage.GetErrorNotificationPassword().Equals(loginPage.LoginErrorNotification()));
 	}
 
 	[Test(Description =
@@ -68,7 +68,7 @@ public class LogonTests : TestBase
 		// Assert
 		report.Log(Status.Info,
 			"User receives a message: \"Username and password do not match any user in this service\"");
-		Assert.AreEqual(loginPage.GetStrUsernameAndPassDoNotMatch(), loginPage.LoginErrorNotification());
+		Assert.That(loginPage.GetStrUsernameAndPassDoNotMatch().Equals(loginPage.LoginErrorNotification()));
 	}
 
 	[Test(Description =
@@ -85,6 +85,6 @@ public class LogonTests : TestBase
 		// Assert
 		report.Log(Status.Info,
 			"User receives a message: \"Username and password do not match any user in this service\"");
-		Assert.AreEqual(loginPage.GetStrUsernameAndPassDoNotMatch(), loginPage.LoginErrorNotification());
+		Assert.That(loginPage.GetStrUsernameAndPassDoNotMatch().Equals(loginPage.LoginErrorNotification()));
 	}
 }

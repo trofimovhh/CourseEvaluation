@@ -40,7 +40,9 @@ public class TestBase
 	[TearDown]
 	public void Close()
 	{
+		driver.Close();	
 		driver.Quit();
+		driver.Dispose();
 		var status = TestContext.CurrentContext.Result.Outcome.Status;
 		var stacktrace = string.IsNullOrEmpty(TestContext.CurrentContext.Result.StackTrace)
 			? ""
